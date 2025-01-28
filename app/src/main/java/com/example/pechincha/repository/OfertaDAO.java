@@ -5,12 +5,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import com.example.pechincha.model.Oferta;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
-import com.example.pechincha.model.Oferta;
 
 public class OfertaDAO {
 
@@ -45,12 +46,26 @@ public class OfertaDAO {
     public List<Oferta> getAll() {
         List<Oferta> ofertas = new ArrayList<>();
         Cursor cursor = db.query("oferta", null, null, null, null, null, "titulo");
+
+        // Índices das colunas
+        int idIndex = cursor.getColumnIndex("id");
+        int tituloIndex = cursor.getColumnIndex("titulo");
+        int precoIndex = cursor.getColumnIndex("preco");
+        int cupomIndex = cursor.getColumnIndex("cupom");
+
+        // Verificar se os índices das colunas são válidos
+        if (idIndex == -1 || tituloIndex == -1 || precoIndex == -1 || cupomIndex == -1) {
+            Log.e("OfertaDAO", "Uma ou mais colunas não existem no cursor.");
+            cursor.close();
+            return ofertas;
+        }
+
         while (cursor.moveToNext()) {
             Oferta oferta = new Oferta();
-            oferta.setId(cursor.getLong(cursor.getColumnIndex("id")));
-            oferta.setTitulo(cursor.getString(cursor.getColumnIndex("titulo")));
-            oferta.setPreco(cursor.getDouble(cursor.getColumnIndex("preco")));
-            oferta.setCupom(cursor.getString(cursor.getColumnIndex("cupom")));
+            oferta.setId(cursor.getLong(idIndex));
+            oferta.setTitulo(cursor.getString(tituloIndex));
+            oferta.setPreco(cursor.getDouble(precoIndex));
+            oferta.setCupom(cursor.getString(cupomIndex));
             ofertas.add(oferta);
         }
         cursor.close();
@@ -61,11 +76,22 @@ public class OfertaDAO {
     public Oferta getById(Long id) {
         Cursor cursor = db.query("oferta", null, "id = ?", new String[]{String.valueOf(id)}, null, null, null);
         if (cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex("id");
+            int tituloIndex = cursor.getColumnIndex("titulo");
+            int precoIndex = cursor.getColumnIndex("preco");
+            int cupomIndex = cursor.getColumnIndex("cupom");
+
+            if (idIndex == -1 || tituloIndex == -1 || precoIndex == -1 || cupomIndex == -1) {
+                Log.e("OfertaDAO", "Uma ou mais colunas não existem no cursor.");
+                cursor.close();
+                return null;
+            }
+
             Oferta oferta = new Oferta();
-            oferta.setId(cursor.getLong(cursor.getColumnIndex("id")));
-            oferta.setTitulo(cursor.getString(cursor.getColumnIndex("titulo")));
-            oferta.setPreco(cursor.getDouble(cursor.getColumnIndex("preco")));
-            oferta.setCupom(cursor.getString(cursor.getColumnIndex("cupom")));
+            oferta.setId(cursor.getLong(idIndex));
+            oferta.setTitulo(cursor.getString(tituloIndex));
+            oferta.setPreco(cursor.getDouble(precoIndex));
+            oferta.setCupom(cursor.getString(cupomIndex));
             cursor.close();
             return oferta;
         }
@@ -90,16 +116,26 @@ public class OfertaDAO {
         String[] selectionArgs = {"%" + titulo.toLowerCase(Locale.ROOT) + "%"};
 
         Cursor cursor = db.rawQuery(consulta, selectionArgs);
+        int idIndex = cursor.getColumnIndex("id");
+        int tituloIndex = cursor.getColumnIndex("titulo");
+        int precoIndex = cursor.getColumnIndex("preco");
+        int cupomIndex = cursor.getColumnIndex("cupom");
+
+        if (idIndex == -1 || tituloIndex == -1 || precoIndex == -1 || cupomIndex == -1) {
+            Log.e("OfertaDAO", "Uma ou mais colunas não existem no cursor.");
+            cursor.close();
+            return ofertas;
+        }
+
         while (cursor.moveToNext()) {
             Oferta oferta = new Oferta();
-            oferta.setId(cursor.getLong(cursor.getColumnIndex("id")));
-            oferta.setTitulo(cursor.getString(cursor.getColumnIndex("titulo")));
-            oferta.setPreco(cursor.getDouble(cursor.getColumnIndex("preco")));
-            oferta.setCupom(cursor.getString(cursor.getColumnIndex("cupom")));
+            oferta.setId(cursor.getLong(idIndex));
+            oferta.setTitulo(cursor.getString(tituloIndex));
+            oferta.setPreco(cursor.getDouble(precoIndex));
+            oferta.setCupom(cursor.getString(cupomIndex));
             ofertas.add(oferta);
         }
         cursor.close();
         return ofertas;
     }
-
 }
