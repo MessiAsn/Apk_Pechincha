@@ -1,10 +1,12 @@
 package com.example.pechincha;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +21,8 @@ public class CadastrarOferta extends AppCompatActivity {
     private EditText etOfertaTitulo;
     private EditText etOfertaPreco;
     private EditText etOfertaCupom;
+    private ImageView ivOfertaImagem;
+    private static final int PICK_IMAGE_REQUEST = 1;
 
     private long id;
     private OfertaDAO ofertaDAO;
@@ -37,6 +41,7 @@ public class CadastrarOferta extends AppCompatActivity {
         etOfertaCupom = findViewById(R.id.et_ofertacupom);
         ibSaveOferta = findViewById(R.id.ib_publicaroferta);
         ibDeleteOferta = findViewById(R.id.ibDeleteOferta);
+        ivOfertaImagem = findViewById(R.id.ivOfertaImagem);
 
         ibDeleteOferta.setVisibility(View.INVISIBLE);
 
@@ -46,6 +51,13 @@ public class CadastrarOferta extends AppCompatActivity {
                 ofertaDAO.insert(getOferta());
                 Toast.makeText(getApplicationContext(), "Oferta inserida", Toast.LENGTH_SHORT).show();
                 finish();
+            }
+        });
+
+        findViewById(R.id.btnSelecionarImagem).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGallery();
             }
         });
 
@@ -77,6 +89,20 @@ public class CadastrarOferta extends AppCompatActivity {
         etOfertaTitulo.setText(oferta.getTitulo());
         etOfertaPreco.setText(String.valueOf(oferta.getPreco()));
         etOfertaCupom.setText(oferta.getCupom());
+    }
+
+    private void openGallery() {
+        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri imageUri = data.getData();
+            ivOfertaImagem.setImageURI(imageUri);
+        }
     }
 
     public void ibDeleteOfertaOnClick(View v) {
