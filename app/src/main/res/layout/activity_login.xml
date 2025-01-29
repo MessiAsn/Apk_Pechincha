@@ -4,16 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/et_login_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintWidth_percent="1.0"
+        android:layout_marginTop="16dp" />
 
     <EditText
         android:id="@+id/et_login_senha"
@@ -21,25 +30,47 @@
         android:layout_height="wrap_content"
         android:hint="Senha"
         android:inputType="textPassword"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_login_email" />
+        app:layout_constraintTop_toBottomOf="@id/et_login_email"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintWidth_percent="1.0"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Login"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_login_senha" />
+        app:layout_constraintTop_toBottomOf="@id/et_login_senha"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintWidth_percent="1.0"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/btn_cadastrar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Cadastrar"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_login" />
+        app:layout_constraintTop_toBottomOf="@id/btn_login"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintWidth_percent="1.0"
+        android:layout_marginTop="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
