@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_cadastrar_oferta"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastrarOferta"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_informacoes_oferta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Confira se todas as informações da oferta estão corretas antes de enviar!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_titulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Título"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_informacoes_oferta" />
+
+    <EditText
+        android:id="@+id/et_ofertatitulo"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_redondo"
+        android:hint="Digite o título da oferta"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_titulo" />
+
+    <TextView
+        android:id="@+id/tv_preco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Preço"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_ofertatitulo" />
+
+    <EditText
+        android:id="@+id/et_ofertapreco"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:hint="Digite o preço final"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_preco"
+        android:background="@drawable/edittext_redondo"/>
+
+    <TextView
+        android:id="@+id/tv_preco_dica"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="O preço deve ser o valor final da compra, com descontos e cupons."
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_ofertapreco" />
+
+    <TextView
+        android:id="@+id/tv_codigo_cupom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Código do cupom (opcional)"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_preco_dica" />
+
+    <EditText
+        android:id="@+id/et_ofertacupom"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:hint="Digite o código do cupom"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_codigo_cupom"
+        android:background="@drawable/edittext_redondo"/>
+
+    <Button
+        android:id="@+id/ib_publicaroferta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#000000"
+        android:text="Publicar oferta"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_ofertacupom" />
+
+    <Button
+        android:id="@+id/ibDeleteOferta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FF0000"
+        android:text="Deletar oferta"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ib_publicaroferta" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
