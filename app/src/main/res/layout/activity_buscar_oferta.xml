@@ -15,28 +15,42 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="28dp"
         android:ems="10"
-        android:hint="Titulo da Oferta"
+        android:hint="Título da Oferta"
         android:inputType="text"
-        android:onClick="buscar"
         app:layout_constraintEnd_toStartOf="@+id/btPesquisarFarmacia"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerBuscaOferta"
+    <EditText
+        android:id="@+id/et_preco_minimo"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        android:ems="10"
+        android:hint="Preço mínimo"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toStartOf="@+id/btPesquisarFarmacia"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_BuscaOferta" />
+        app:layout_constraintTop_toBottomOf="@id/et_BuscaOferta" />
+
+    <EditText
+        android:id="@+id/et_preco_maximo"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        android:ems="10"
+        android:hint="Preço máximo"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toStartOf="@+id/btPesquisarFarmacia"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_preco_minimo" />
 
     <Button
         android:id="@+id/btPesquisarFarmacia"
@@ -51,5 +65,30 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/et_BuscaOferta"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_aplicar_filtro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Aplicar filtro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_preco_maximo" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerBuscaOferta"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_aplicar_filtro" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

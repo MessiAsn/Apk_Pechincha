@@ -138,4 +138,34 @@ public class OfertaDAO {
         cursor.close();
         return ofertas;
     }
+
+    @SuppressLint("Range")
+    public List<Oferta> buscaPorFiltro(String titulo, double precoMinimo, double precoMaximo) {
+        List<Oferta> ofertas = new ArrayList<>();
+        String consulta = "SELECT * FROM oferta WHERE Lower(titulo) LIKE ? AND preco BETWEEN ? AND ?";
+        String[] selectionArgs = {"%" + titulo.toLowerCase(Locale.ROOT) + "%", String.valueOf(precoMinimo), String.valueOf(precoMaximo)};
+
+        Cursor cursor = db.rawQuery(consulta, selectionArgs);
+        int idIndex = cursor.getColumnIndex("id");
+        int tituloIndex = cursor.getColumnIndex("titulo");
+        int precoIndex = cursor.getColumnIndex("preco");
+        int cupomIndex = cursor.getColumnIndex("cupom");
+
+        if (idIndex == -1 || tituloIndex == -1 || precoIndex == -1 || cupomIndex == -1) {
+            Log.e("OfertaDAO", "Uma ou mais colunas não existem no cursor.");
+            cursor.close();
+            return ofertas;
+        }
+
+        while (cursor.moveToNext()) {
+            Oferta oferta = new Oferta();
+            oferta.setId(cursor.getLong(idIndex));
+            oferta.setTitulo(cursor.getString(tituloIndex));
+            oferta.setPreco(cursor.getDouble(precoIndex));
+            oferta.setCupom(cursor.getString(cupomIndex));
+            ofertas.add(oferta);
+        }
+        cursor.close();
+        return ofertas;
+    }
 }
