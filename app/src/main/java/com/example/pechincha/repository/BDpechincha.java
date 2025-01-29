@@ -26,7 +26,7 @@ public class BDpechincha extends SQLiteOpenHelper {
                 "nome TEXT NOT NULL)";
 
         String CREATE_TABLE_USUARIO = "CREATE TABLE usuario (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +git commit -m "Remove arquivos desnecessários"
                 "nome TEXT NOT NULL, " +
                 "email TEXT NOT NULL, " +
                 "senha TEXT NOT NULL)";
