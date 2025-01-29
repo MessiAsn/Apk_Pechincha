@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".CadastrarUsuarioActivity">
 
+    <ImageView
+        android:id="@+id/iv_usuario_foto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Foto do Usuário"
+        android:background="@drawable/round_image"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_selecionar_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Selecionar Foto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_usuario_foto" />
+
     <EditText
         android:id="@+id/et_usuario_nome"
         android:layout_width="0dp"
@@ -13,7 +35,7 @@
         android:hint="Nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_selecionar_foto" />
 
     <EditText
         android:id="@+id/et_usuario_email"
