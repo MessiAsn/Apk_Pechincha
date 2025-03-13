@@ -40,9 +40,7 @@ O **Pechincha** é um aplicativo Android que permite aos usuários cadastrar, bu
 
 ---
 
-## 🚀 Como Executar o Projeto
-
-### Pré-requisitos
+## 🚀 Pré-requisitos
 - Android Studio (última versão estável).
 - Dispositivo Android ou emulador configurado.
 
