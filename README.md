@@ -45,3 +45,21 @@ O **Pechincha** é um aplicativo Android que permite aos usuários cadastrar, bu
 ### Pré-requisitos
 - Android Studio (última versão estável).
 - Dispositivo Android ou emulador configurado.
+
+## 📌 Sugestões para Melhorias Futuras
+
+**1. Integração com API de Ofertas:**
+
+Conectar o aplicativo a uma API externa para buscar ofertas em tempo real.
+
+**2. Autenticação de Usuário:**
+
+Adicionar funcionalidade de login e registro de usuários.
+
+**3. Notificações de Promoções:**
+
+Enviar notificações push quando novas ofertas forem cadastradas.
+
+**4. Integração com Redes Sociais:**
+
+Permitir compartilhamento de ofertas em redes sociais.
