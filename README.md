@@ -26,20 +26,6 @@ O **Pechincha** é um aplicativo Android que permite aos usuários cadastrar, bu
 
 ---
 
-## 📁 Estrutura do Projeto
-
-- **`/src/main/java/com/example/pechincha`**:
-  - **`model/`**: Contém as classes de modelo, como `Oferta` e `Usuario`.
-  - **`repository/`**: Contém as classes de acesso ao banco de dados, como `OfertaDAO` e `BDpechincha`.
-  - **`recycler/`**: Contém o adaptador para a lista de ofertas (`OfertaAdapter`).
-  - **`activity/`**: Contém as atividades principais, como `BuscarOferta` e `CadastrarOferta`.
-
-- **`/src/main/res`**:
-  - **`layout/`**: Contém os arquivos XML de layout das atividades.
-  - **`drawable/`**: Contém recursos visuais, como ícones e imagens.
-
----
-
 ## 🚀 Pré-requisitos
 - Android Studio (última versão estável).
 - Dispositivo Android ou emulador configurado.
